@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>To-do CRUD</title>
+    <style>
+        input[type='submit'], button, [aria-label] {
+            cursor: pointer;
+        }
+
+        #spoiler {
+            display: none;
+        }
+
+        table {
+            font-family: Arial, sans-serif;
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+
+        th {
+            border: 1px solid;
+            background-color: #0066CC;
+            color: white;
+            padding: 8px;
+        }
+
+        td {
+            border: 1px solid;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>To-do CRUD</h1>
+    <h3>Add</h3>
+    <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
+        <input type="text" id="add-name" placeholder="New task to-do">
+        <input type="submit" value="Add">
+    </form>
+
+    <div id="spoiler">
+        <h3>Edit</h3>
+        <form class="my-form">
+            <input type="hidden" id="edit-id">
+            <input type="checkbox" id="edit-isComplete">
+            <input type="number" min="0" max="100" id="edit-percent-complete">
+            <input type="text" id="edit-title">
+            <input type="text" id="edit-name">
+            <input type="submit" value="Save">
+            <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+        </form>
+    </div>
+
+    <p id="counter"></p>
+
+    <table>
+        <tr>
+            <th>Done</th>
+            <th> % Complete</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Edit data</th>
+            <th>Delete data</th>
+        </tr>
+        <tbody id="todos"></tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="site.js"></script>
+</body>
+</html>
